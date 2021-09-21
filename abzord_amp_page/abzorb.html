@@ -1,0 +1,808 @@
+<!doctype html>
+<html amp lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Abzorb amp page</title>
+    <link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+
+    <style amp-custom>
+        body {
+            font-family: sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin: 0;
+        }
+
+        .header {
+
+            padding: 0.5rem;
+            color: white;
+            background-color: rgb(11 53 107);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar {
+            flex: 1;
+        }
+
+        .logo {
+            margin: 0.5rem 0 0.5rem 5rem;
+        }
+
+        .navbar-trigger {
+            font-size: 1.5rem;
+        }
+
+        .slider-container {
+            background-color: black;
+        }
+
+        .navbar-trigger {
+            font-size: 1.5rem;
+        }
+
+        .slider {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .nav-item {
+            margin: 1rem;
+        }
+
+        .discount {
+            background-color: white;
+            border-radius: 2rem;
+            border: 1px solid white;
+            padding: 7px;
+            color: red;
+            margin-right: 3rem;
+        }
+
+        .slider a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .banner-1 {
+            width: 47vw;
+            height: 100%;
+        }
+
+        .banner-item {
+            display: flex;
+            height: 100%;
+        }
+
+        .banner-text {
+            font-size: 1.5rem;
+            margin: auto auto;
+            padding: 1rem;
+        }
+
+        .banner-text button {
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            background: red;
+            color: white;
+            border: 1px solid red;
+            font-size: 1.2rem;
+        }
+
+        .uses {
+            width: 100vw;
+            background: rgb(11 53 107);
+            margin-top: -19px;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .uses-heading {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .uses-container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        /* .uses-image{
+                padding: 1rem;
+            } */
+
+        .uses-width {
+            width: 20%;
+            padding: 1rem;
+        }
+
+        .uses-image {
+            padding: 1rem;
+            background-color: white;
+            clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+        }
+
+        .uses-text {
+            background-color: #1A73E8;
+            width: -webkit-fill-available;
+            text-align: center;
+            padding: 1px;
+            border-radius: 1.5rem;
+        }
+
+        .lightbox {
+            width: fit-content;
+            height: fit-content;
+            position: absolute;
+            top: 4.9rem;
+            right: 5rem;
+            text-align: center;
+        }
+
+        .lightbox h1 {
+            color: white;
+        }
+
+        .lightClick {
+            background: orange;
+            border: 1px solid orange;
+            color: #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            z-index: 9999;
+        }
+
+        form.amp-form-submit-success [submit-success],
+        form.amp-form-submit-error [submit-error] {
+            margin-top: 16px;
+        }
+
+        form.amp-form-submit-success [submit-success] {
+            color: green;
+        }
+
+        form.amp-form-submit-error [submit-error] {
+            color: red;
+        }
+
+        form.amp-form-submit-success.hide-inputs>input {
+            display: none
+        }
+
+        .cancel {
+            font-size: 15px;
+            position: relative;
+            right: -22px;
+            font-family: sans-serif;
+            margin: -28px auto;
+            text-align: right;
+            cursor: pointer;
+            color: white;
+        }
+
+        .setUpForm {
+            max-width: 280px;
+            padding: 30px 30px 30px 15px;
+            background-color: rgb(11 53 107);
+        }
+
+        .setUpForm h2 {
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        .setUpForm form input {
+            display: block;
+            width: 97%;
+            height: 30px;
+            margin-bottom: 5px;
+            padding: 6px 10px;
+            border-radius: 19px;
+        }
+
+        input.button.button-primary {
+            width: 105%;
+            color: #fff;
+            background: red;
+            border: 1px solid red;
+            font-size: 16px;
+            line-height: 16px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 2rem;
+        }
+
+        .footer-links li {
+            list-style-type: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+        }
+
+        .show {
+            display: block;
+            font-size: 0.9rem;
+            padding: 1rem;
+            background-color: white;
+            color: rgb(11 53 107) ;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+        .hide {
+            display: none;
+        }
+
+        .faq {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background: #d4d1d1;
+        }
+
+        .faq-accordion{
+            margin: 1rem;
+            width: -webkit-fill-available ; 
+        }
+
+        .faq-accordion h3{
+            background-color: rgb(11 53 107);
+            color: #fff;
+            border: 0;
+            margin: 1rem 0 0 0;
+            font-size: 16px;
+            padding: 1rem;
+            text-align: left;
+                }
+        .faq-accordion p{
+            padding:1rem;
+            text-align:left;
+            color: rgb(11 53 107);
+            background-color:#fff;
+        }
+
+        .consumer {
+            width: 90vw;
+            height: fit-content;
+        }
+
+        .consumer_container {
+            width: 70vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .consumer_comment {
+            margin: 2rem;
+            text-align: center;
+            color: white;
+            background: rgb(11 53 107);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .footer-icons-section {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-icon {
+            margin: 0 1rem;
+        }
+        .sidebar-button{
+            display: none;
+        }
+
+
+        @media only screen and (max-width:720px) {
+            .navbar {
+                display: none;
+            }
+
+            .logo {
+                margin: 0.5rem;
+            }
+
+            .banner-item {
+                flex-direction: column-reverse;
+            }
+
+            .banner-1 {
+                width: 100vw;
+            }
+
+            .banner-text {
+                font-size: 1.3rem;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .discount {
+                margin-right: 0;
+            }
+
+            .lightbox {
+                right: 1rem
+            }
+
+            .uses-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            .uses-width {
+                width: 70%;
+                padding: 1rem;
+            }
+
+            .consumer {
+                width: 100vw
+            }
+
+            .consumer_comment {
+                margin: 1rem;
+            }
+
+            .faq-accordion h3{
+                font-size: 0.7rem;
+            }
+
+            .footer {
+                background: black;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                padding: 2rem;
+            }
+
+            .footer-form {
+                margin: 1rem;
+                border-bottom: 1px solid white;
+            }
+
+            .sidebar-button{
+                display: block;
+                font-size: 1.5rem;
+            }
+            .slider{
+                display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    padding: 1rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="sidebar-button" role="button" tabindex="0"
+                 on="tap:sidebar.toggle"> ☰
+            </div>
+            <amp-sidebar id="sidebar" class="slider-container" layout="nodisplay" style="width:300px">
+                <h2 style="text-align: center; margin: 2rem 1rem 1rem;">ABZORB</h2>
+                <nav>
+                  <ul class="slider">
+                    <li class="nav-item">
+                      <a href="#">Benefits</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#">Testimonials</a>
+                    </li>
+                  </ul>
+                </nav>
+                
+             </amp-sidebar>
+        <div class="logo">
+            <h1>ABZORB</h1>
+        </div>
+        <div class="navbar">
+            <nav>
+                <ul class="slider">
+                    <li class="nav-item">
+                        <a href="#">Benefits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Testimonials</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="nav-item">
+            <button class="discount" on="tap:modal">
+                Unlock Discount
+            </button>
+            <div class="form-modal">
+                <amp-lightbox id="modal" layout="nodisplay">
+                    <div class="lightbox">
+                        <div class="setUpForm">
+                            <div class="cancel" on="tap:modal.close" role="button" tabindex="0">
+                                X
+                            </div>
+                            <h5 style="margin: 1rem 0.5rem 0; font-family: sans-serif;">
+                                UNLOCK YOUR COUPON CODE TODAY
+                            </h5>
+                            <p style="margin: 0.7rem 0; font-family: sans-serif;">
+                                get 10% on your purchase
+                            </p>
+                            <form method="post" action-xhr="#" target="_top">
+                                <input type="text" name="product" placeholder="Select Product" required />
+                                <input type="text" name="name" placeholder="Full Name" required />
+                                <input type="text" name="number" placeholder="Mobile Number" required />
+                                <input type="email" name="email" placeholder="Email..." required />
+                                <p style="margin: 0.7rem 0;font-family: sans-serif;">
+                                    I agree to Terms & Conditions
+                                </p>
+                                <input type="submit" value="Subscribe" class="button button-primary">
+                            </form>
+                        </div>
+                    </div>
+                </amp-lightbox>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- <section style="height: 480; width: 436;"> -->
+        <amp-carousel height="500" layout="fixed-height" type="slides" class="carouse1">
+            <div style="background-image: url('../abzorb_amp_page/images/banner-bg.jpg');">
+                <div class="banner-item">
+                    <div>
+                        <amp-img src="../abzorb_amp_page/images/banner-1.jpg" width="200" height="100" layout="responsive"
+                            class="banner-1"></amp-img>
+                    </div>
+                    <div class="banner-text">
+                        <h1>Garmiyaan aayengi,</h1>
+                        <h2>paseeney waali</h2>
+                        <h2>problem nahi</h2>
+                        <button>
+                            Explore More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <amp-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/X-412.jpg/218px-X-412.jpg"
+                height="400" width="100" layout="responsive">
+            </amp-img>
+            <amp-img
+                src="https://manslife.noesis.tech/wp-content/uploads/2021/01/different-equipment-barber-shop-1024x675.jpg"
+                height="300" width="300" layout="responsive">
+            </amp-img>
+        </amp-carousel>
+    <!-- </section> -->
+    <section class="uses">
+        <div class="uses-heading">
+            <h1>Stay itch-free, all day, every day</h1>
+            <h3>Long-lasting relief from Rashes and fungal infections</h3>
+        </div>
+        <div class="uses-container">
+            <div class="uses-width">
+                <div class="uses-image">
+                    <amp-img src="../abzorb_amp_page/images/uses-1.jpg" width="100" height="80" layout="responsive">
+                    </amp-img>
+                </div>
+                <div class=" uses-text">
+                    <p [text]="visible1 ? 'Show Less -' : 'Show More +'" role="button" tabindex=0
+                        on="tap:AMP.setState({visible1: !visible1})">
+                        Show More +
+                    </p>
+                    <p [class]="visible1 ? 'show' : 'hide' " class="hide">
+                        Some more content. ahas a hsaue a a aoiewhfa na najsdh
+                    </p>
+                </div>
+            </div>
+            <div class="uses-width">
+                <div class="uses-image">
+                    <amp-img src="../abzorb_amp_page/images/uses-1.jpg" width="100" height="80" layout="responsive">
+                    </amp-img>
+                </div>
+                <div class=" uses-text">
+                    <p [text]="visible2 ? 'Show Less -' : 'Show More +'" role="button" tabindex=0
+                        on="tap:AMP.setState({visible2: !visible2})">
+                        Show More +
+                    </p>
+                    <p [class]="visible2 ? 'show' : 'hide'" class="hide">
+                        Some more content. ahas a hsaue a a aoiewhfa na najsdh
+                    </p>
+                </div>
+            </div>
+            <div class="uses-width">
+                <div class="uses-image">
+                    <amp-img src="../abzorb_amp_page/images/uses-1.jpg" width="100" height="80" layout="responsive">
+                    </amp-img>
+                </div>
+                <div class=" uses-text">
+                    <p [text]="visible3 ? 'Show Less -' : 'Show More +'" role="button" tabindex=0
+                        on="tap:AMP.setState({visible3: !visible3})">
+                        Show More +
+                    </p>
+                    <p [class]="visible3 ? 'show' : 'hide'" class="hide">
+                        Some more content. ahas a hsaue a a aoiewhfa na najsdh
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2>FAQs<h2>    
+            <amp-accordion expand-single-section class="faq-accordion">
+                <section>
+                  <h3>What is Abzorb T Antifungal Cream?</h3>
+                  <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                </section>
+            </amp-accordion>
+            <amp-accordion expand-single-section class="faq-accordion">
+                <section>
+                  <h3>What is Abzorb T Antifungal Cream?</h3>
+                  <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                </section>
+            </amp-accordion>
+            <amp-accordion expand-single-section class="faq-accordion">
+                <section>
+                  <h3>What is Abzorb T Antifungal Cream?</h3>
+                  <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                </section>
+            </amp-accordion>
+        
+            <amp-accordion expand-single-section class="faq-accordion">
+                <section>
+                  <h3>What is Abzorb T Antifungal Cream?</h3>
+                  <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                </section>
+            </amp-accordion>
+        
+            <amp-accordion expand-single-section class="faq-accordion">
+                <section>
+                  <h3>What is Abzorb T Antifungal Cream?</h3>
+                  <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                </section>
+            </amp-accordion>
+        
+
+        <h2 style="margin-top: 2rem;">Consumer Speak</h2>
+
+        <div class="consumer">
+            <amp-carousel height="250" layout="fixed-height" type="slides" class="carouse2">
+                <div class="consumer_container">
+                    <p class="consumer_comment">ndl ie dn llla dbai sbhde and bueueb dd did akj nfasknn a </p>
+                    <div class="consumer_info">
+                        <h3>name</h3>
+                        <p>user</p>
+                    </div>
+                </div>
+                <div class="consumer_container">
+                    <p class="consumer_comment"> salkj aji aasid ajajdl aaj dd duheheheh andl ie dn llla dbai sbhde and
+                        bueueb dd did akj nfasknn a </p>
+                    <div class="consumer_info">
+                        <h3>name</h3>
+                        <p>user</p>
+                    </div>
+                </div>
+                <div class="consumer_container">
+                    <p class="consumer_comment">salkj aji aasid ajajdl aaj dd duheheheh and salkj aji aasid ajajdl aaj
+                        dd duheheheh andl ie dn llla akj nfasknn a </p>
+                    <div class="consumer_info">
+                        <h3>name</h3>
+                        <p>user</p>
+                    </div>
+                </div>
+            </amp-carousel>
+        </div>
+
+    </section>
+
+    <div style="background-image: url('../abzorb_amp_page/images/banner-bg.jpg');">
+        <div class="banner-item">
+            <div class="banner-text">
+                <h2>Garmiyaan aayengi,</h2>
+                <h3>paseeney waali</h3>
+                <h3>problem nahi</h3>
+                <button>
+                    Explore More
+                </button>
+            </div>
+            <div>
+                <!-- <img src="https://manslife.noesis.tech/wp-content/uploads/2021/01/different-equipment-barber-shop-1024x675.jpg"
+                    class="banner-1"> -->
+                <amp-img src="../abzorb_amp_page/images/banner-1.jpg" width="200" height="100" layout="responsive"
+                    class="banner-1"></amp-img>    
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            ABZORB
+        </div>
+        <div class="footer-form">
+            <p>Sign up for freee</p>
+            <div class="footer-icons-section">
+                <span class="footer-icon">FOLLOW US</span>
+                <amp-social-share class="footer-icon" type="twitter" data-param-url="" width="30" height="30"
+                    aria-label="Share on Twitter"></amp-social-share>
+                <amp-social-share class="footer-icon" type="facebook" data-param-url="" width="30" height="30"
+                    aria-label="Share on Twitter"></amp-social-share>
+                <amp-social-share class="footer-icon" type="linkedin" data-param-url="" width="30" height="30"
+                    aria-label="Share on Twitter"></amp-social-share>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <li><a href="#">Benefits</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Testomonials</a></li>
+        </div>
+        <div class="footer-links">
+            <li><a href="#">T&C</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </div>
+    </footer>
+
+</body>
+
+</html>
